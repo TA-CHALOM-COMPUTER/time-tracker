@@ -1,0 +1,40 @@
+<nav class="navbar navbar-dark bg-primary px-3 d-flex justify-content-between d-md-none">
+  <span class="navbar-brand fw-bold">⏱ Time Tracker</span>
+  <button class="btn btn-outline-light btn-sm" data-bs-toggle="offcanvas" data-bs-target="#sidebar">☰</button>
+</nav>
+
+<div class="offcanvas offcanvas-start d-md-block bg-dark text-white" tabindex="-1" id="sidebar" style="width:230px;min-height:100vh">
+  <div class="offcanvas-header d-md-none">
+    <h5 class="offcanvas-title">เมนู</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="p-3">
+    <div class="text-center mb-3">
+      <div class="fs-4">⏱</div>
+      <div class="fw-bold">Time Tracker</div>
+      <small class="text-secondary" id="lbl-sidebar-user">—</small>
+    </div>
+    <hr class="border-secondary">
+    <ul class="nav flex-column gap-1">
+      <li><a href="dashboard.html" class="nav-link text-white px-2 rounded sidebar-link">🏠 Dashboard</a></li>
+      <li><a href="attendance.html" class="nav-link text-white px-2 rounded sidebar-link">📋 บันทึกเวลา</a></li>
+      <li><a href="leave.html" class="nav-link text-white px-2 rounded sidebar-link">📅 การลา</a></li>
+      <li><a href="timebank.html" class="nav-link text-white px-2 rounded sidebar-link">💰 Time Bank</a></li>
+      <li><a href="reports.html" class="nav-link text-white px-2 rounded sidebar-link">📊 รายงาน</a></li>
+      <li><a href="settings.html" class="nav-link text-white px-2 rounded sidebar-link">⚙️ ตั้งค่า</a></li>
+    </ul>
+    <hr class="border-secondary">
+    <button onclick="logout()" class="btn btn-outline-danger btn-sm w-100">🚪 ออกจากระบบ</button>
+  </div>
+</div>
+
+<script>
+// Highlight active link
+document.querySelectorAll(".sidebar-link").forEach(a => {
+  if (a.href === location.href) a.classList.add("bg-primary");
+});
+// Show user email
+auth.onAuthStateChanged(u => {
+  if (u) document.getElementById("lbl-sidebar-user").textContent = u.email;
+});
+</script>

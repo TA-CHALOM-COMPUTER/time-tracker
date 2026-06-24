@@ -1,0 +1,76 @@
+/* ===================================================
+   TIME TRACKER — Global Styles
+   =================================================== */
+
+body {
+  font-family: 'Sarabun', 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+}
+
+/* Sidebar fixed on desktop */
+#sidebar-container > .offcanvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  transform: none !important;
+  visibility: visible !important;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+@media (max-width: 767px) {
+  #sidebar-container > .offcanvas {
+    position: fixed !important;
+    transform: translateX(-100%) !important;
+    visibility: hidden !important;
+  }
+  #sidebar-container > .offcanvas.show {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+  }
+  main {
+    margin-left: 0 !important;
+  }
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+
+.card-header {
+  border-radius: 12px 12px 0 0 !important;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Sidebar links */
+.sidebar-link {
+  transition: background .15s;
+}
+.sidebar-link:hover {
+  background: rgba(255,255,255,.15) !important;
+}
+
+/* Toast */
+#toast-msg {
+  min-width: 260px;
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+/* Tables */
+.table th {
+  font-size: .85rem;
+  letter-spacing: .02em;
+}
+
+/* Responsive main padding */
+@media (max-width: 767px) {
+  main { padding: 1rem !important; }
+  h4   { font-size: 1.2rem; }
+}
